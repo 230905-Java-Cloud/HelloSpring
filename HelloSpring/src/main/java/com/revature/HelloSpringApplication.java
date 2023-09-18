@@ -35,6 +35,23 @@ public class HelloSpringApplication {
 
 		System.out.println(m);
 
+		//Beans are singletons by default - the SAME instance of movie will be shared across all objects
+		Movie m2 = ac.getBean(Movie.class);
+
+		//try to give m2 a new value
+		m2.setMovieTitle("The Dark Knight");
+
+		//The two movie objects have the same values! They are singletons!!
+		System.out.println(m);
+		System.out.println(m2);
+
+		/* IF YOU'RE READING THIS TO STUDY-
+
+		the comments above won't be completely accurate to what prints in console
+		this is because we set movie to be prototype scoped
+
+		Singleton scope works out for director since both of these movies are directed by Nolan
+		If we had a different movie with a different director, the Director may need prototype scope as well */
 
 	}
 

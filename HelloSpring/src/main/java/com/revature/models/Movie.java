@@ -1,9 +1,11 @@
 package com.revature.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component //again, we want this Class to be registered as a Bean in the IoC container
+@Scope("prototype") //now, Movie is not singleton scoped!!
 public class Movie {
 
     private int movieId;

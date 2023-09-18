@@ -1,5 +1,8 @@
 package com.revature.models;
 
+import org.springframework.stereotype.Component;
+
+@Component //This is one of the 4 stereotype annotations that makes a Class a Bean
 public class Director {
 
     private int directorId;

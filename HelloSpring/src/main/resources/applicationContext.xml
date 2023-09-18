@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The applicationContext.xml holds the configurations for how we register, create, and inject Spring Beans -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- We need the <beans> tag and its configurations in order for this xml to be used for Spring -->
+
+
+    <!--This is the only thing we need in order to accomplish annotation-driven bean wiring-->
+    <context:component-scan base-package="com.revature"></context:component-scan>
+    <!--With this one line, the applicationContext.xml knows to scan com.revature for beans-->
+
+
+    <!--BELOW IS AND OLDER WAY TO DEFINE AND WIRE BEANS. Only really in specific cases-->
+
+    <!-- Below, we are declaring and wiring our Beans in XML! -->
+
+    <!-- Director Bean -->
+<!--    <bean name="director" class="com.revature.models.Director"></bean>-->
+
+    <!-- Movie Bean -->
+<!--    <bean name="movie" class="com.revature.models.Movie">-->
+
+        <!-- The Movie Bean has Director as a dependency! We need to define tht as well -->
+<!--        <property name="director" ref="director"></property>-->
+        <!-- "name" is the name of the property. "ref" is the bean this property refers to-->
+
+<!--    </bean>-->
+
+
+
+</beans>

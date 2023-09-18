@@ -1,5 +1,9 @@
 package com.revature.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component //again, we want this Class to be registered as a Bean in the IoC container
 public class Movie {
 
     private int movieId;
@@ -8,6 +12,13 @@ public class Movie {
     private Director director;
 
     //boilerplate code---------------------
+
+    //CONSTRUCTOR INJECTION - a dependency-only constructor to wire director as a dependency of movie
+    //I prefer this over setter injection because the wiring happens ASAP (as opposed to with setter)
+    @Autowired
+    public Movie(Director director) {
+        this.director = director;
+    }
 
     public Movie() {
     }
@@ -38,6 +49,8 @@ public class Movie {
         return director;
     }
 
+    //@Autowired - SETTER INJECTION - using the setter to define director as a dependency of movie
+    //this dependency injection won't happen until director is set
     public void setDirector(Director director) {
         this.director = director;
     }
